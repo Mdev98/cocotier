@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+    <section>
+        <div class="filter-container">
+
+            <form action="" method="GET" id="list-form">
+                <div class="input_field">
+                    <label for="">date debut</label>
+                    <input type="date" name="date_debut" id="">
+                </div>
+            
+                <div class="input_field">
+                    <label for="">date fin</label>
+                    <input type="date" name="date_fin" id="">
+                </div>
+    
+                <button  type="submit" class="btn filter-btn">Valider</button>
+                <button  type="submit" class="btn filter-btn" name="export">Export</button>
+            </form>
+        </div>
+        <table>
+
+            <tr>
+                <th class="head-table-text">Date</th>
+                <th class="head-table-text">Nombre de reclamations enregistrées</th>
+                <th class="head-table-text">motif de la reclamation</th>
+                <th class="head-table-text">nombre de reclamations traitées</th>
+                <th class="head-table-text">ACTION</th>
+            </tr>
+            {% for reclamation in reclamation_list %}
+
+                <tr>
+                    <td>{{reclamation.date}}</td>
+                    <td>{{reclamation.nbr_reclamation_enregistre}}</td>
+                    <td>{{reclamation.motif_reclamation}}</td>
+                    <td>{{reclamation.nbr_reclamation_traite}}</td>
+                    <td><a href="{% url 'edit-reclamation' reclamation.id %}">EDIT</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </section>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section>
+    <div class="formulaire">
+        <div class="form_container">
+            <form method="POST" id="declaration">
+                {% csrf_token %}
+                {{form.date}}
+                <div class="input_field">
+                    {{form.depot_a_vue.label}}
+                    {{form.depot_a_vue}}
+                </div>
+                <div class="input_field">
+                    {{form.depot_a_terme.label}}
+                    {{form.depot_a_terme}}
+                </div>
+                <div class="input_field">
+                    {{form.titre_acquis.label}}
+                    {{form.titre_acquis}}
+                </div>
+                    {{form.total.label}}
+                    {{form.total}}
+                <button type="submit" class="btn">Valider</button>
+            </form>
+        </div>
+    </div>
+</section>
+    
+    
+
+{% endblock %}
+

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+    <section>
+        <div class="filter-container">
+
+            <form action="" method="GET" id="list-form">
+                <div class="input_field">
+                    <label for="">date debut</label>
+                    <input type="date" name="date_debut" id="">
+                </div>
+            
+                <div class="input_field">
+                    <label for="">date fin</label>
+                    <input type="date" name="date_fin" id="">
+                </div>
+    
+                <button  type="submit" class="btn filter-btn">Valider</button>
+                <button  type="submit" class="btn filter-btn" name="export">Export</button>
+            </form>
+        </div>
+        <table>
+            <tr>
+                <th class="head-table-text">Date</th>
+                <th class="head-table-text">code identifiant ratio</th>
+                <th class="head-table-text">Intitule ratio</th>
+                <th class="head-table-text">Taux</th>
+                <th class="head-table-text">ACTION</th>
+            </tr>
+            {% for ratio in ratio_list %}
+                <tr>
+                    <td>{{ratio.date}}</td>
+                    <td>{{ratio.code_identifiant_ratio}}</td>
+                    <td>{{ratio.intitule_ratio}}</td>
+                    <td>{{ratio.taux}}</td> 
+                    <td><a href="{% url 'edit-ratio' ratio.id %}">EDIT</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </section>
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+    <section>
+        <table style="margin: 100px auto;">
+
+            <tr>
+                <th class="head-table-text">Username</th>
+                <th class="head-table-text">Email</th>
+                <th class="head-table-text">Status</th>
+                <th class="head-table-text">Role</th>
+                <th class="head-table-text">ACTION</th>
+            </tr> 
+            {% for account in accounts %}
+
+                {% if account.role.name != 'admin'%}
+                {% if account.is_del == False %}
+                    <tr>
+                        <td>{{account.user_set.get.username}}</td>
+                        <td>{{account.user_set.get.email}}</td>
+                        <td>
+
+                            {% if account.status %}
+                                Actif 
+                            {% else %}
+                                Inactif 
+                            {% endif %}
+
+                        </td>
+                        <td>{{account.role.name}}</td> 
+                        <td><a href="{% url 'edit-account' account.id %}">EDIT</a></td>
+                    </tr>
+                {% endif %}
+                {% endif %}   
+            {% endfor %}
+        </table>
+    </section>
+
+{% endblock %}

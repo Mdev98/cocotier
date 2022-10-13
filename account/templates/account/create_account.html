@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <section>
+        <div class="formulaire">
+            <div class="form_container">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="input_field">
+                        {{user_form.username.label}}
+                        {{user_form.username}}
+                    </div>
+                    <div class="input_field">
+                        {{user_form.email.label}}
+                        {{user_form.email}}
+                    </div>
+                    <div class="input_field">
+                        {{user_form.password1.label}}
+                        {{user_form.password1}}
+                        <!-- <span class="helptext">Your password must contain at least 8 characters</span> -->
+                    </div>
+                    <div class="input_field">
+                        {{user_form.password2.label}}
+                        {{user_form.password2}}
+                    </div>
+                        {{account_form.role.label}}
+                        {{account_form.role}}
+                   
+                    <button type="submit" class="btn">Ajouter</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    
+{% endblock %}

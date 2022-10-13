@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <section>
+        <div class="formulaire">
+            <div class="form_container">
+                <form method="POST" id="declaration">
+                    {% csrf_token %}
+                    {{form.date}}
+                    <div class="input_field">
+                        {{form.code_indicateur.label}}
+                        {{form.code_indicateur}}
+                    </div>
+                    <div class="input_field">
+                        {{form.indicateur.label}}
+                        {{form.indicateur}}
+                    </div>
+                    <div class="input_field">
+                        {{form.valeur.label}}
+                        {{form.valeur}}
+                    </div>
+                    <button type="submit" class="btn">Valider</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+{% endblock %}
+

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+    <section>
+        <div class="filter-container">
+
+            <form action="" method="GET" id="list-form">
+                <div class="input_field">
+                    <label for="">date debut</label>
+                    <input type="date" name="date_debut" id="">
+                </div>
+            
+                <div class="input_field">
+                    <label for="">date fin</label>
+                    <input type="date" name="date_fin" id="">
+                </div>
+    
+                <button  type="submit" class="btn filter-btn">Valider</button>
+                <button  type="submit" class="btn filter-btn" name="export">Export</button>
+            </form>
+        </div>
+        <table>
+
+            <tr>
+                <th class="head-table-text">Date</th>
+                <th class="head-table-text">Code</th>
+                <th class="head-table-text">indicateur</th>
+                <th class="head-table-text">valeur</th>
+                <th class="head-table-text">ACTION</th>
+            </tr>
+            {% for ifin in ifin_list %}
+                <tr>
+                    <td>{{ifin.date}}</td>
+                    <td>{{ifin.code_indicateur}}</td>
+                    <td>{{ifin.indicateur}}</td>
+                    <td>{{ifin.valeur}}</td>
+                    <td><a href="{% url 'edit-ifin' ifin.id %}">EDIT</a></td>
+                </tr>
+        {% endfor %}
+        </table>
+    </section>
+
+{% endblock %}

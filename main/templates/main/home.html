@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    
+    <section>
+        <div class="parent">
+
+            {% for data in dashboard_data %}
+                <div class="card"> 
+                    <h1>{{data.name}}</h1>
+                    <span class="number">{{data.number}}</span>
+                </div>
+            {% endfor %}
+            
+        </div>
+    </section>
+ 
+{% endblock %}

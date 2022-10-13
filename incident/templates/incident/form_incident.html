@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section>
+    <div class="formulaire">
+        <div class="form_container">
+            <form method="POST" id="declaration">
+                {% csrf_token %}
+                <section>
+                    {{form.date}}
+                    <div class="input_field">
+                        {{form.date_debut.label}}
+                        {{form.date_debut}}
+                    </div>
+                    <div class="input_field">
+                        {{form.date_fin.label}}
+                        {{form.date_fin}}
+                    </div>
+                    <div class="input_field">
+                        {{form.severite.label}}
+                        {{form.severite}}
+                    </div>
+                    <div class="input_field">
+                        {{form.type_incident.label}}
+                        {{form.type_incident}}
+                    </div>
+                        
+                    <div class="input_field">
+                        {{form.impact.label}}
+                        {{form.impact}}
+                    </div>
+
+                    <div class="input_field">
+                        {{form.cause.label}}
+                        {{form.cause}}
+                    </div>
+
+                    {{form.solution.label}}
+                    {{form.solution}}
+                    
+                </section>
+                
+                <section>
+                    <div class="input_field">
+                        {{form.nombre_carte_capture.label}}
+                        {{form.nombre_carte_capture}}
+                    </div>
+                        {{form.motif_capture.label}}
+                        {{form.motif_capture}}
+
+                        {{form.mesure_prise.label}}
+                        {{form.mesure_prise}}
+                </section>
+            <button type="submit" class="btn">Valider</button>
+        </form>
+    </div>
+</section>
+    
+
+{% endblock %}
+

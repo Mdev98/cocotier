@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section>
+    <div class="formulaire">
+        <div class="form_container">
+            <form method="POST" id="declaration">
+                {% csrf_token %}
+                {{form.date}}
+                <div class="input_field">
+                    {{form.client.label}}
+                    {{form.client}}
+                </div>
+                <div class="input_field">
+                    {{form.type_fraud.label}}
+                    {{form.type_fraud}}
+                </div>
+                <div class="input_field">
+                    {{form.nombre_transactions.label}}
+                    {{form.nombre_transactions}}
+                </div>
+                <div class="input_field">
+                    {{form.montant_transactions.label}}
+                    {{form.montant_transactions}}
+                </div>
+                    {{form.dispositif_gestion.label}}
+                    {{form.dispositif_gestion}}
+                <button type="submit" class="btn">Valider</button>
+            </form>
+        </div>
+    </div>
+</section>
+    
+
+{% endblock %}
+

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+    <section>
+        <div class="filter-container">
+
+            <form action="" method="GET" id="list-form">
+                <div class="input_field">
+                    <label for="">date debut</label>
+                    <input type="date" name="date_debut" id="">
+                </div>
+            
+                <div class="input_field">
+                    <label for="">date fin</label>
+                    <input type="date" name="date_fin" id="">
+                </div>
+    
+                <button  type="submit" class="btn filter-btn">Valider</button>
+                <button  type="submit" class="btn filter-btn" name="export">Export</button>
+            </form>
+        </div>
+        <table>
+    
+            <tr>
+                <th class="head-table-text">Date</th>
+                <th class="head-table-text">Date debut</th>
+                <th class="head-table-text">Date fin</th>
+                <th class="head-table-text">Sévérité</th>
+                <th class="head-table-text">cause</th>
+                <th class="head-table-text">type incident</th>
+                <th class="head-table-text">impacte</th>
+                <th class="head-table-text">solution</th>
+                <th class="head-table-text">nombre de carte capturée</th>
+                <th class="head-table-text">motif de capture</th>
+                <th class="head-table-text">mesure prise</th>
+                <th class="head-table-text">ACTION</th>
+            </tr>
+            {% for incident in incident_list %}
+                <tr>
+                    <td>{{incident.date_enregistrement}}</td>
+                    <td>{{incident.date_debut}}</td>
+                    <td>{{incident.date_fin}}</td>
+                    <td>{{incident.severite}}</td>
+                    <td>{{incident.cause}}</td>
+                    <td>{{incident.type_incident}}</td>
+                    <td>{{incident.impact}}</td>
+                    <td>{{incident.solution}}</td>
+                    <td>{{incident.nombre_carte_capture}}</td>
+                    <td>{{incident.motif_capture}}</td>
+                    <td>{{incident.mesure_prise}}</td>
+                    <td><a href="{% url 'edit-incident' incident.id %}">EDIT</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </section>
+
+{% endblock %}

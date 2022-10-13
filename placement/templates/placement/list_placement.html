@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+    <section>
+        <div class="filter-container">
+
+            <form action="" method="GET" id="list-form">
+                <div class="input_field">
+                    <label for="">date debut</label>
+                    <input type="date" name="date_debut" id="">
+                </div>
+            
+                <div class="input_field">
+                    <label for="">date fin</label>
+                    <input type="date" name="date_fin" id="">
+                </div>
+    
+                <button  type="submit" class="btn filter-btn">Valider</button>
+                <button  type="submit" class="btn filter-btn" name="export">Export</button>
+            </form>
+        </div>
+        <table>
+            <tr>
+                <th class="head-table-text">Date</th>
+                <th class="head-table-text">depot à vue</th>
+                <th class="head-table-text">depot à terme</th>
+                <th class="head-table-text">titre acquis</th>
+                <th class="head-table-text">Total</th>
+                <th class="head-table-text">ACTION</th>
+            </tr>
+            {% for placement in placement_list %}
+                <tr>
+                    <td>{{placement.date}}</td>
+                    <td>{{placement.depot_a_vue}}</td>
+                    <td>{{placement.depot_a_terme}}</td>
+                    <td>{{placement.titre_acquis}}</td> 
+                    <td>{{placement.total}}</td>
+                    <td><a href="{% url 'edit-placement' placement.id %}">EDIT</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </section>
+
+{% endblock %}

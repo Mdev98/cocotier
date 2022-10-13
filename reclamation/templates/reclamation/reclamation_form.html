@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section>
+    <div class="formulaire">
+        <div class="form_container">
+            <form method="POST" id="declaration">
+                {% csrf_token %}
+                {{form.date}}
+                <div class="input_field">
+                    {{form.nbr_reclamation_enregistre.label}}
+                    {{form.nbr_reclamation_enregistre}}
+                </div>
+                    {{form.motif_reclamation.label}}
+                    {{form.motif_reclamation}}
+                <div class="input_field">
+                    {{form.nbr_reclamation_traite.label}}
+                    {{form.nbr_reclamation_traite}}
+                </div>
+                <button type="submit" class="btn">Valider</button>
+            </form>
+        </div>
+    </div>
+</section>
+    
+    
+
+{% endblock %}
+

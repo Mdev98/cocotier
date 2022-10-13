@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <a href="{% url 'home' %}">Home</a>
+
+{% endblock %}
+
+{% block content %}
+    <section>
+        <div class="formulaire">
+            <div class="form_container">
+                <form method="POST" id="declaration">
+                    {% csrf_token %}
+                    {{form.date}}
+                    <div class="input_field">
+                        {{form.code_SFM.label}}
+                        {{form.code_SFM}}
+                    </div>
+                    <div class="input_field">
+                        {{form.valeur.label}}
+                        {{form.valeur}}
+                    </div>
+                        {{form.details.label}}
+                        {{form.details}}
+                    <button type="submit" class="btn">Valider</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+{% endblock %}
+

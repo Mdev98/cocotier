@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+    <section>
+        <div class="filter-container">
+
+            <form action="" method="GET" id="list-form">
+                <div class="input_field">
+                    <label for="">date debut</label>
+                    <input type="date" name="date_debut" id="">
+                </div>
+            
+                <div class="input_field">
+                    <label for="">date fin</label>
+                    <input type="date" name="date_fin" id="">
+                </div>
+    
+                <button  type="submit" class="btn filter-btn">Valider</button>
+                <button  type="submit" class="btn filter-btn" name="export">Export</button>
+            </form>
+        </div>
+        <table>
+    
+            <tr>
+                <th class="head-table-text">Date</th>
+                <th class="head-table-text">valeur initial monnaie electronique en circulation</th>
+                <th class="head-table-text">nouvelle emission de monnaie electronique</th>
+                <th class="head-table-text">destruction de monnaie electronique</th>
+                <th class="head-table-text">valeur finale totale de la monnaie electronique en circulation</th>
+                <th class="head-table-text">solde du compte de cantonnement</th>
+                <th class="head-table-text">solde total des comptes de cantonnement</th>
+                <th class="head-table-text">solde au niveau de la comptabilite</th>
+                <th class="head-table-text">ecart compte de cantonnement</th>
+                <th class="head-table-text">ecart comptabilite</th>
+                <th class="head-table-text">ecart comptabilite comptabilite</th>
+                <th class="head-table-text">nombre de transactions</th>
+                <th class="head-table-text">valeur des transactions</th>
+                <th class="head-table-text">date operation</th>
+                <th class="head-table-text">reference</th>
+                <th class="head-table-text">nature operation</th>
+                <th class="head-table-text">montant</th>
+                <th class="head-table-text">observations</th>
+            </tr>
+            {% for monetique in monetiques %}
+                <tr>
+                    <td>{{monetique.date}}</td> 
+                    <td>{{monetique.valeur_initiale_monetique}}</td> 
+                    <td>{{monetique.nouvelle_emission_monetique}}</td> 
+                    <td>{{monetique.destruction_monetique}}</td> 
+                    <td>{{monetique.valeur_finale_totale_monetique}}</td> 
+                    <td>{{monetique.solde_compte_cantonnement}}</td> 
+                    <td>{{monetique.solde_total_comptes_cantonnement}}</td> 
+                    <td>{{monetique.solde_niveau_comptabilite}}</td> 
+                    <td>{{monetique.ecart_compte_cantonnement}}</td> 
+                    <td>{{monetique.ecart_comptabilite}}</td> 
+                    <td>{{monetique.ecart_comptabilite_compte_cantonnement}}</td> 
+                    <td>{{monetique.nombre_transaction}}</td> 
+                    <td>{{monetique.valeur_transaction}}</td> 
+                    <td>{{monetique.date_operation}}</td> 
+                    <td>{{monetique.reference}}</td> 
+                    <td>{{monetique.nature_operation}}</td> 
+                    <td>{{monetique.montant}}</td> 
+                    <td>{{monetique.observations}}</td> 
+                    <td><a href="{% url 'edit-controle' monetique.id %}">EDIT</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </section>
+
+{% endblock %}

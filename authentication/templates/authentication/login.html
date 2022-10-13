@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+    <div class="authentication-wrapper">
+        <div class="login">
+            <img src="{% static 'images/fbn_logo.png' %}">
+            <span>{{message}}</span>
+            <form method="post">
+                {% csrf_token %}
+                <div class="input_field">
+                    <label for="">Username/Email</label>
+                    {{form.username}}
+                </div>
+                <div class="input_field">
+                    <label for="">Mot de Passe</label>
+                    {{form.password}}
+                </div>
+                <button type="submit" class="btn">Se connecter</button>
+            </form>
+        </div>
+    </div>
+
+    
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+    <section>
+        <div class="filter-container">
+
+            <form action="" method="GET" id="list-form">
+                <div class="input_field">
+                    <label for="">date debut</label>
+                    <input type="date" name="date_debut" id="">
+                </div>
+            
+                <div class="input_field">
+                    <label for="">date fin</label>
+                    <input type="date" name="date_fin" id="">
+                </div>
+    
+                <button  type="submit" class="btn filter-btn">Valider</button>
+                <button  type="submit" class="btn filter-btn" name="export">Export</button>
+            </form>
+        </div>
+        <table>
+    
+            <tr>
+                <th class="head-table-text">Date</th>
+                <th class="head-table-text">Type de Fraude</th>
+                <th class="head-table-text">Nombre Transactions</th>
+                <th class="head-table-text">Montant Transactions</th>
+                <th class="head-table-text">Client</th>
+                <th class="head-table-text">Dispositif Gestion</th>
+                <th class="head-table-text">ACTION</th>
+            </tr>
+            {% for fraud in fraud_list %}
+                <tr>
+                    <td>{{fraud.date}}</td>
+                    <td>{{fraud.type_fraud}}</td>
+                    <td>{{fraud.nombre_transactions}}</td>
+                    <td>{{fraud.montant_transactions}}</td>
+                    <td>{{fraud.client}}</td>
+                    <td>{{fraud.dispositif_gestion}}</td>     
+                    <td><a href="{% url 'edit-fraud' fraud.id %}">EDIT</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </section>
+
+{% endblock %}

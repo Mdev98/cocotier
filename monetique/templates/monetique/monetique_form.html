@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section>
+    <div class="formulaire">
+        <div class="form_container">
+            <form method="POST" id="declaration">
+                {% csrf_token %}
+                <section>
+                    {{form.date}}
+                    <div class="input_field">
+                        {{form.valeur_initiale_monetique.label}}
+                        {{form.valeur_initiale_monetique}}
+                    </div>
+                    <div class="input_field">
+                        {{form.nouvelle_emission_monetique.label}}
+                        {{form.nouvelle_emission_monetique}}
+                    </div>
+                    <div class="input_field">
+                        {{form.destruction_monetique.label}}
+                        {{form.destruction_monetique}}
+                    </div>
+                        
+                    <div class="input_field">
+                        {{form.valeur_finale_totale_monetique.label}}
+                        {{form.valeur_finale_totale_monetique}}
+                    </div>
+
+                    <div class="input_field">
+                        {{form.solde_compte_cantonnement.label}}
+                        {{form.solde_compte_cantonnement}}
+                    </div>
+
+                    <div class="input_field">
+                        {{form.solde_niveau_comptabilite.label}}
+                        {{form.solde_niveau_comptabilite}}
+                    </div>
+                    
+                    <div class="input_field">
+                        {{form.solde_niveau_comptabilite.label}}
+                        {{form.solde_niveau_comptabilite}}
+                    </div>
+
+                    <div class="input_field">
+                        {{form.nombre_transaction.label}}
+                        {{form.nombre_transaction}}
+                    </div>
+
+                    <div class="input_field">
+                        {{form.valeur_transaction.label}}
+                        {{form.valeur_transaction}}
+                    </div>
+                </section>
+                
+                <section>
+
+                        <div class="input_field">
+                            {{form.reference.label}}
+                            {{form.reference}}
+                        </div>
+
+                        <div class="input_field">
+                            {{form.nature_operation.label}}
+                            {{form.nature_operation}}
+                        </div>
+
+                        <div class="input_field">
+                            {{form.montant.label}}
+                            {{form.montant}}
+                        </div>
+                        {{form.observations.label}}
+                        {{form.observations}}
+                </section>
+            <button type="submit" class="btn">Valider</button>
+        </form>
+    </div>
+</section>
+    
+
+{% endblock %}
+
